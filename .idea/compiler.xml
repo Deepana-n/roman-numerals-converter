@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="roman_numerals_converter" />
         <module name="roman_ numerals_converter" />
       </profile>
     </annotationProcessing>
