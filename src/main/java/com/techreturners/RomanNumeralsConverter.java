@@ -8,11 +8,11 @@ public class RomanNumeralsConverter {
     private static final RomanNumeralsConverter rnc = new RomanNumeralsConverter();
 
     public static void main(String[] args) {
-       rnc.getUserInput();
+       rnc.userRomanNumeralsToNumber();
 
     }
 
-    public void getUserInput(){
+    public void userRomanNumeralsToNumber(){
         Scanner sc = new Scanner(System.in);
         String romanNumeral;
         String pattern = "^(?=[IVXLCDM])M*(C[MD]|D?C{0,3})(X[CL]|L?X{0,3})(I[XV]|V?I{0,3})$";
@@ -21,7 +21,7 @@ public class RomanNumeralsConverter {
             System.out.print("Please enter Roman Numeral: ");
             romanNumeral = sc.nextLine();
             if(!romanNumeral.toUpperCase().matches(pattern)){
-                rnc.errorMessageNonRomanNumeral(romanNumeral);
+                rnc.errorMessageNonRomanNumeral();
             }
             else if(romanNumeral.equalsIgnoreCase("q") || romanNumeral.equalsIgnoreCase("0")){
                 break;
@@ -46,7 +46,7 @@ public class RomanNumeralsConverter {
         return map;
     }
 
-    public void errorMessageNonRomanNumeral(String roman){
+    public void errorMessageNonRomanNumeral(){
         System.out.println("Please re-enter valid Roman Numerals ----> [IVXLCDM] and Numerals should not repeat > 3x");
         System.out.println();
     }
