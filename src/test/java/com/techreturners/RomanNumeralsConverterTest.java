@@ -39,4 +39,16 @@ class RomanNumeralsConverterTest {
         assertEquals(4782, rnc.convertRomanNumerals("MMMMDCCLXXXII"));
     }
 
+    @Test
+    public void checkRomanNumeralLowerCaseVI(){
+        assertEquals(6, rnc.convertRomanNumerals("vi"));
+    }
+
+    @Test
+    public void checkRomanNumeralMixtureOfUpperAndLowerCaseCCLXX(){
+        assertEquals(270, rnc.convertRomanNumerals("ccLxX"));
+    }
+
+
+
 }
