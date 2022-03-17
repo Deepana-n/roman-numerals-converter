@@ -20,12 +20,13 @@ public class RomanNumeralsConverter {
             System.out.println("**** To quit programme enter q or 0 ****");
             System.out.print("Please enter Roman Numeral: ");
             romanNumeral = sc.nextLine();
-            if(!romanNumeral.toUpperCase().matches(pattern)){
+            if(romanNumeral.equalsIgnoreCase("q") || romanNumeral.equalsIgnoreCase("0")){
+                break;
+            }
+            else if(!romanNumeral.toUpperCase().matches(pattern)){
                 rnc.errorMessageNonRomanNumeral();
             }
-            else if(romanNumeral.equalsIgnoreCase("q") || romanNumeral.equalsIgnoreCase("0")){
-                break;
-            }else{
+            else{
                 int number = rnc.convertRomanNumerals(romanNumeral);
                 System.out.println("You converted the Roman Numeral " + romanNumeral.toUpperCase() + " to the number " + number);
                 System.out.println();
@@ -59,10 +60,12 @@ public class RomanNumeralsConverter {
         for (int i = 0; i < roman.length() - 1; i++) {
             char cur = roman.charAt(i);
             char next = roman.charAt(i + 1);
-            if (mapOfRomanNumerals().get(cur) < mapOfRomanNumerals().get(next))
+            if (mapOfRomanNumerals().get(cur) < mapOfRomanNumerals().get(next)){
                 value -= mapOfRomanNumerals().get(cur);
-            else
+            }
+            else{
                 value += mapOfRomanNumerals().get(cur);
+            }
         }
         return value + mapOfRomanNumerals().get(last);
     }
