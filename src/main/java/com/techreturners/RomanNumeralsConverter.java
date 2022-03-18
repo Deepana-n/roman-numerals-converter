@@ -6,7 +6,8 @@ import java.util.Scanner;
 public class RomanNumeralsConverter {
 
    private static final RomanNumeralsConverter rnc = new RomanNumeralsConverter();
-   private static final HashMap<Character, Integer> map = new HashMap<>();
+   private static final String REGEX_PATTERN = "^(?=[IVXLCDM])M*(C[MD]|D?C{0,3})(X[CL]|L?X{0,3})(I[XV]|V?I{0,3})$";
+   private static final HashMap<Character, Integer> map = new HashMap<>(); //instantiate here so hashmap created only once
 
     public static void main(String[] args) {
         rnc.userRomanNumeralsToNumber();
@@ -16,7 +17,6 @@ public class RomanNumeralsConverter {
     public void userRomanNumeralsToNumber(){
         Scanner sc = new Scanner(System.in);
         String romanNumeral;
-        String pattern = "^(?=[IVXLCDM])M*(C[MD]|D?C{0,3})(X[CL]|L?X{0,3})(I[XV]|V?I{0,3})$";
         while(true){
             System.out.println("**** To quit programme enter q or 0 ****");
             System.out.print("Please enter Roman Numeral: ");
@@ -24,7 +24,7 @@ public class RomanNumeralsConverter {
             if(romanNumeral.equalsIgnoreCase("q") || romanNumeral.equalsIgnoreCase("0")){
                 break;
             }
-            else if(!romanNumeral.toUpperCase().matches(pattern)){
+            else if(!romanNumeral.toUpperCase().matches(REGEX_PATTERN)){
                 rnc.errorMessageNonRomanNumeral();
             }
             else{
@@ -37,7 +37,6 @@ public class RomanNumeralsConverter {
 
     public HashMap<Character, Integer> mapOfRomanNumerals() {
         //Store the fundamental roman numerals in a hashmap
-        //HashMap<Character, Integer> map = new HashMap<>();
         map.put('I', 1);
         map.put('V', 5);
         map.put('X', 10);
@@ -48,7 +47,7 @@ public class RomanNumeralsConverter {
         return map;
     }
 
-    public void errorMessageNonRomanNumeral(){
+    private void errorMessageNonRomanNumeral(){
         System.out.println("Please re-enter valid Roman Numerals ----> [IVXLCDM] and Numerals should not repeat > 3x");
         System.out.println();
     }
