@@ -5,7 +5,6 @@ Roman Numerals Converter Console Application using the Java programming language
 ## Features
 
 User enters roman numeral in console and application converts it to a number
-![img.png](img.png)
 
 ## Technologies
 - Java 17.0.2
