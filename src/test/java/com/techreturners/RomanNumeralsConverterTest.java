@@ -3,11 +3,11 @@ package com.techreturners;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 class RomanNumeralsConverterTest {
 
-    private RomanNumeralsConverter rnc;
+   private RomanNumeralsConverter rnc;
 
     @BeforeEach
     public void setup(){
@@ -47,5 +47,47 @@ class RomanNumeralsConverterTest {
     @Test
     public void checkRomanNumeralMixtureOfUpperAndLowerCaseCCLXX(){
         assertEquals(270, rnc.convertRomanNumerals("ccLxX"));
+    }
+
+    @Test
+    public void checkWhenRegexWorksRomanNumeralRepeatedMoreThanThreeTimes(){
+        String repeatedRomanNumeral = "IIII";
+        assertFalse(rnc.checkUserWithRegex(repeatedRomanNumeral));
+    }
+
+    @Test
+    public void checkWhenRegexWorksValidRomanNumeral(){
+        String validRomanNumeral = "IV";
+        assertTrue(rnc.checkUserWithRegex(validRomanNumeral));
+    }
+
+    @Test
+    public void checkWhenRegexWorksUsingNonRomanNumeralLetter(){
+        String nonRomanNumeralLetter = "P";
+        assertFalse(rnc.checkUserWithRegex(nonRomanNumeralLetter));
+    }
+
+    @Test
+    public void checkWhenRegexWorksMixOfNonAndValidRomanNumerals(){
+        String nonAndValidRomanNumeral = "PX";
+        assertFalse(rnc.checkUserWithRegex(nonAndValidRomanNumeral));
+    }
+
+    @Test
+    public void checkWhenRegexWorksLowercaseValidRomanNumerals(){
+        String lowercaseValidRomanNumeral = "ix";
+        assertTrue(rnc.checkUserWithRegex(lowercaseValidRomanNumeral));
+    }
+
+    @Test
+    public void checkWhenRegexWorksLowercaseUppercaseValidRomanNumerals(){
+        String lowerUpperCaseValidRomanNumeral = "Di";
+        assertTrue(rnc.checkUserWithRegex(lowerUpperCaseValidRomanNumeral));
+    }
+
+    @Test
+    public void checkWhenRegexWorksLowercaseInvalidRomanNumerals(){
+        String lowerInvalidRomanNumeral = "k";
+        assertFalse(rnc.checkUserWithRegex(lowerInvalidRomanNumeral));
     }
 }
