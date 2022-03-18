@@ -16,7 +16,7 @@ class RomanNumeralsConverterTest {
 
     @Test
     public void checkRomanNumeralI(){
-       assertEquals(1, rnc.convertRomanNumerals("I"));
+        assertEquals(1, rnc.convertRomanNumerals("I"));
     }
 
     @Test
@@ -48,7 +48,4 @@ class RomanNumeralsConverterTest {
     public void checkRomanNumeralMixtureOfUpperAndLowerCaseCCLXX(){
         assertEquals(270, rnc.convertRomanNumerals("ccLxX"));
     }
-
-
-
 }

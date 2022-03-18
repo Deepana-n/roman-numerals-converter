@@ -5,10 +5,11 @@ import java.util.Scanner;
 
 public class RomanNumeralsConverter {
 
-    private static final RomanNumeralsConverter rnc = new RomanNumeralsConverter();
+   private static final RomanNumeralsConverter rnc = new RomanNumeralsConverter();
+   private static final HashMap<Character, Integer> map = new HashMap<>();
 
     public static void main(String[] args) {
-       rnc.userRomanNumeralsToNumber();
+        rnc.userRomanNumeralsToNumber();
 
     }
 
@@ -36,7 +37,7 @@ public class RomanNumeralsConverter {
 
     public HashMap<Character, Integer> mapOfRomanNumerals() {
         //Store the fundamental roman numerals in a hashmap
-        HashMap<Character, Integer> map = new HashMap<>();
+        //HashMap<Character, Integer> map = new HashMap<>();
         map.put('I', 1);
         map.put('V', 5);
         map.put('X', 10);
