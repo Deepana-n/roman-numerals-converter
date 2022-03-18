@@ -13,12 +13,12 @@ User enters roman numeral in console and application converts it to a number
 To run application in terminal, run the following command
 
 ```bash
-   mvn exec:java -Dexec.mainClass="com.techreturners.RomanNumeralsConverter"
+mvn exec:java -Dexec.mainClass="com.techreturners.RomanNumeralsConverter"
 ```
 ## Running Tests
 
 To run tests, run the following command
 
 ```bash
-  mvn test
+mvn test
 ```
