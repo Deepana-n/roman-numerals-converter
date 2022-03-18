@@ -5,13 +5,13 @@ import java.util.Scanner;
 
 public class RomanNumeralsConverter {
 
-   private static final RomanNumeralsConverter rnc = new RomanNumeralsConverter();
-   private static final String REGEX_PATTERN = "^(?=[IVXLCDM])M*(C[MD]|D?C{0,3})(X[CL]|L?X{0,3})(I[XV]|V?I{0,3})$";
+   private static final RomanNumeralsConverter rnc = new RomanNumeralsConverter();//instantiate here so object created once
+   private static final String REGEX_PATTERN = "^(?i)(?=[IVXLCDM])M*(C[MD]|D?C{0,3})(X[CL]|L?X{0,3})(I[XV]|V?I{0,3})$";
+   private static final String USER_ERR_MSG = "Please re-enter valid Roman Numerals ----> [IVXLCDM] and Numerals should not repeat > 3x";
    private static final HashMap<Character, Integer> map = new HashMap<>(); //instantiate here so hashmap created only once
 
     public static void main(String[] args) {
         rnc.userRomanNumeralsToNumber();
-
     }
 
     public void userRomanNumeralsToNumber(){
@@ -24,8 +24,9 @@ public class RomanNumeralsConverter {
             if(romanNumeral.equalsIgnoreCase("q") || romanNumeral.equalsIgnoreCase("0")){
                 break;
             }
-            else if(!romanNumeral.toUpperCase().matches(REGEX_PATTERN)){
-                rnc.errorMessageNonRomanNumeral();
+            else if(!checkUserWithRegex(romanNumeral)){
+                System.out.println(USER_ERR_MSG);
+                System.out.println();
             }
             else{
                 int number = rnc.convertRomanNumerals(romanNumeral);
@@ -35,7 +36,7 @@ public class RomanNumeralsConverter {
         }
     }
 
-    public HashMap<Character, Integer> mapOfRomanNumerals() {
+    private HashMap<Character, Integer> mapOfRomanNumerals() {
         //Store the fundamental roman numerals in a hashmap
         map.put('I', 1);
         map.put('V', 5);
@@ -47,9 +48,8 @@ public class RomanNumeralsConverter {
         return map;
     }
 
-    private void errorMessageNonRomanNumeral(){
-        System.out.println("Please re-enter valid Roman Numerals ----> [IVXLCDM] and Numerals should not repeat > 3x");
-        System.out.println();
+    public boolean checkUserWithRegex(String roman){
+        return roman.matches(REGEX_PATTERN);
     }
 
     public int convertRomanNumerals(String roman) {
