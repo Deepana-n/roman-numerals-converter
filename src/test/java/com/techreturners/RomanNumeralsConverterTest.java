@@ -50,43 +50,43 @@ class RomanNumeralsConverterTest {
     }
 
     @Test
-    public void checkWhenRegexWorksRomanNumeralRepeatedMoreThanThreeTimes(){
+    public void checkRegexWhenRomanNumeralRepeatedMoreThanThreeTimes(){
         String repeatedRomanNumeral = "IIII";
         assertFalse(rnc.checkUserWithRegex(repeatedRomanNumeral));
     }
 
     @Test
-    public void checkWhenRegexWorksValidRomanNumeral(){
+    public void checkRegexWhenRomanNumeralValid(){
         String validRomanNumeral = "IV";
         assertTrue(rnc.checkUserWithRegex(validRomanNumeral));
     }
 
     @Test
-    public void checkWhenRegexWorksUsingNonRomanNumeralLetter(){
+    public void checkRegexWhenNonRomanNumeralInvalid(){
         String nonRomanNumeralLetter = "P";
         assertFalse(rnc.checkUserWithRegex(nonRomanNumeralLetter));
     }
 
     @Test
-    public void checkWhenRegexWorksMixOfNonAndValidRomanNumerals(){
+    public void checkRegexWhenMixOfNonAndRomanNumeralInvalid(){
         String nonAndValidRomanNumeral = "PX";
         assertFalse(rnc.checkUserWithRegex(nonAndValidRomanNumeral));
     }
 
     @Test
-    public void checkWhenRegexWorksLowercaseValidRomanNumerals(){
+    public void checkRegexWhenLowercaseRomanNumeralValid(){
         String lowercaseValidRomanNumeral = "ix";
         assertTrue(rnc.checkUserWithRegex(lowercaseValidRomanNumeral));
     }
 
     @Test
-    public void checkWhenRegexWorksLowercaseUppercaseValidRomanNumerals(){
+    public void checkRegexWhenLowerUppercaseRomanNumeralValid(){
         String lowerUpperCaseValidRomanNumeral = "Di";
         assertTrue(rnc.checkUserWithRegex(lowerUpperCaseValidRomanNumeral));
     }
 
     @Test
-    public void checkWhenRegexWorksLowercaseInvalidRomanNumerals(){
+    public void checkRegexWhenLowercaseRomanNumeralInvalid(){
         String lowerInvalidRomanNumeral = "k";
         assertFalse(rnc.checkUserWithRegex(lowerInvalidRomanNumeral));
     }
