@@ -50,7 +50,7 @@ class RomanNumeralsConverterTest {
     }
 
     @Test
-    public void checkRegexWhenRomanNumeralRepeatedMoreThanThreeTimes(){
+    public void checkRegexWhenRomanNumeralRepeatedMoreThanThreeTimesInvalid(){
         String repeatedRomanNumeral = "IIII";
         assertFalse(rnc.checkUserWithRegex(repeatedRomanNumeral));
     }
